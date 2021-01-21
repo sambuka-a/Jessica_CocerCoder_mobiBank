@@ -1,0 +1,183 @@
+/*Reset*/
+*{padding: 0; margin: 0; border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height: 100%;width: 100%;font-size: 100%;line-height: 1;font-size: 14px;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+body {
+    font-family: 'Public Sans', sans-serif;
+    font-size: $font-med;
+    color: $grayishBlue;
+    font-weight: 300;
+    overflow-x: hidden;
+
+    &.noscroll {
+        overflow: hidden;
+    }
+
+    @include breakpoint-up(large) {
+        font-size: $font-med;
+    }
+}
+
+// Text
+h1, h2, h3 {
+    margin-top: 0px;
+    font-weight: 300;
+    color: $darkBlue;
+    line-height: 1.15;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2.3125rem;
+
+    @include breakpoint-up(large) {
+        font-size: $font-xlg;
+    } 
+}
+
+h2 {
+    font-size: 1.875rem;
+    margin-bottom: 1.5625rem;
+
+    @include breakpoint-up(large) {
+        font-size: 2.25rem;
+        margin-bottom: 2.25rem;
+    }
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 2.25rem;
+}
+
+/*Flex*/
+.flex {
+    display: flex;
+    
+    &-jc-sb {
+        justify-content: space-between;
+    }
+
+    &-jc-c {
+        justify-content: center;
+    }
+
+    &-ai-c {
+        align-items: center;
+    }
+}
+
+//Spacing
+.container {
+    max-width: 69.375rem;
+    margin: 0 auto;
+    
+    &--pall {
+        padding-top: 4.375rem;
+        padding-right: 1.7142rem;
+        padding-bottom: 4.375rem;
+        padding-left: 1.7142rem;
+
+        @include breakpoint-up(large) {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+    }
+
+    &--py {
+        padding-top: 4.375rem;
+        padding-bottom: 4.375rem;
+
+        @include breakpoint-up(large) {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+    }
+
+    &--px {
+        padding-left: 1.7142rem;
+        padding-right: 1.7142rem;
+    }
+
+    &--pt {
+        padding-top: 4.375rem;
+
+        @include breakpoint-up(large) {
+            padding-top: 6rem;
+        }
+    }
+
+    &--pr {
+        padding-right: 1.7142rem;
+    }
+
+    &--pb {
+        padding-bottom: 4.375rem;
+
+        @include breakpoint-up(large) {
+            padding-bottom: 6rem;
+        }
+    }
+
+    &--pl {
+        padding-left: 1.7142rem;
+    }
+}
+
+//Buttons
+button, .button {
+    position: relative;
+    display: inline-block;
+    padding: 0.875rem 2.1875rem;
+    background: linear-gradient(to right, $limeGreen, $brightCyan);
+    border-radius: 50px;
+    border: 0;
+    color: $white;
+    font-size: $font-sm;
+    font-weight: 400;
+    transition: opacity 300ms ease-in-out;
+    overflow: hidden;
+
+    &::before {
+        content:"";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.25);
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+}
+
+//Visibility
+.hide-for-mobile {
+@include breakpoint-down(medium) {
+    display: none;
+    }
+}
+
+.hide-for-desktop {
+@include breakpoint-up(large) {
+    display: none;
+    }
+}
